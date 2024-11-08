@@ -1,7 +1,6 @@
 package contas;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDate;
 
 public class ContaService {
     private ContaRepository contaRepository;
@@ -10,41 +9,30 @@ public class ContaService {
         this.contaRepository = new ContaRepository();
     }
 
-    // Criação de conta
-    public Conta criarConta(int id, String titular, double saldoInicial) {
+
+    public Conta criarConta(int id, String nomeCompleto, String cpf, String endereco, String telefone, String email, LocalDate dataNascimento, double saldoInicial) {
         if (saldoInicial < 0) {
             throw new IllegalArgumentException("Saldo inicial não pode ser negativo");
         }
-        Conta novaConta = new Conta(id, titular, saldoInicial);
+        Conta novaConta = new Conta(id, nomeCompleto, cpf, endereco, telefone, email, dataNascimento, saldoInicial);
         contaRepository.salvarConta(novaConta);
         return novaConta;
     }
 
-    public Conta consultarConta(int id) {
-        Conta conta = contaRepository.buscarContaPorId(id);
-        if (conta == null) {
-            throw new ContaNotFoundException("Conta com ID " + id + " não encontrada");
-        }
-        return conta;
-    }
 
-    // Atualização de conta
-    public void atualizarConta(int id, String novoTitular, double novoSaldo) {
+    
+    public void atualizarConta(int id, String nomeCompleto, String cpf, String endereco, String telefone, String email, LocalDate dataNascimento, double novoSaldo) {
         Conta conta = contaRepository.buscarContaPorId(id);
         if (conta == null) {
             throw new ContaNotFoundException("Conta com ID " + id + " não encontrada");
         }
-        conta.setTitular(novoTitular);
+        conta.setNomeCompleto(nomeCompleto);
+        conta.setCpf(cpf);
+        conta.setEndereco(endereco);
+        conta.setTelefone(telefone);
+        conta.setEmail(email);
+        conta.setDataNascimento(dataNascimento);
         conta.setSaldo(novoSaldo);
         contaRepository.atualizarConta(conta);
-    }
-
-    // Exclusão de conta
-    public void excluirConta(int id) {
-        Conta conta = contaRepository.buscarContaPorId(id);
-        if (conta == null) {
-            throw new ContaNotFoundException("Conta com ID " + id + " não encontrada");
-        }
-        contaRepository.deletarConta(id);
     }
 }

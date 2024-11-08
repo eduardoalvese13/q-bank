@@ -5,7 +5,7 @@
 
 ## 📋 Proposta do Projeto
 
-Este projeto representa o desenvolvimento de um sistema bancário que permite aos clientes realizar operações bancárias por meio do console. O sistema é projetado para proporcionar uma interface segura e amigável para o gerenciamento de contas, transações financeiras, solicitações de empréstimos, gerenciamento de cartões de crédito e pagamento de serviços externos, tudo através do console da IDE.
+Este projeto representa o desenvolvimento de um sistema bancário que permite aos clientes realizar operações bancárias por meio do console. 
 
 O trabalho faz parte da avaliação prática da unidade curricular de Modelos, Métodos e Técnicas de Engenharia de Software e foi idealizado para aplicar conhecimentos sobre modelagem de sistemas, análise de requisitos, design de software e implementação básica.
 
