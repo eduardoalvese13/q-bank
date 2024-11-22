@@ -2,7 +2,7 @@ package contas;
 import java.time.LocalDate;
 
 public class Conta {
-    private int id;
+    private int idf;
     private String nomeCompleto;
     private String cpf;
     private String endereco;
